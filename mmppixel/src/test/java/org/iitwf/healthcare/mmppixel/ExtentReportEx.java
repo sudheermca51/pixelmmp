@@ -27,10 +27,6 @@ public class ExtentReportEx {
 		extent.attachReporter(spark);
 		
 		
-		
-		
-		
-		
 		ExtentTest extentTest = extent.createTest("##########Schedule Appointment Tests######################");
 		WebDriver driver = new ChromeDriver();
 		driver.get("http://85.209.95.122/MMP-Release2-Integrated-Build.6.8.000/portal/login.php");

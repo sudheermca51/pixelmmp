@@ -19,7 +19,7 @@ public class ScreenshotUtil {
 		 
 		this.driver = driver;
 	}
-	public void captureScreenshot(String fileName) throws IOException
+	public String captureScreenshot(String fileName) throws IOException
 	{
 		
 		Date date= Calendar.getInstance().getTime();
@@ -40,6 +40,8 @@ public class ScreenshotUtil {
 		
 		//copy the screenshot into a specified location
 		FileUtils.copyFile(srcFile, destFile);
+		
+		return destFilePath;
 		
 		
 	}

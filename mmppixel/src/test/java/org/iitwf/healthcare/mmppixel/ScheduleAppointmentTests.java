@@ -8,15 +8,19 @@ import org.iitwf.lib.ScreenshotUtil;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentTest;
+
 public class ScheduleAppointmentTests extends FrameworkLibrary{
 	
 	MMPCustomLibrary sa;	
 	@Test
 	public void MMP_PAT_SCH_001_Schedule_Appointment() throws IOException
 	{
-	 	
-		launchBrowser(prop.getProperty("patient_url"));
+		ExtentTest extentTest = extent.createTest("##########Schedule Appointment Tests######################");
 		
+		
+		launchBrowser(prop.getProperty("patient_url"));
+		extentTest.info("Loading the website successfully");
 		sa = new MMPCustomLibrary(driver);
 		ScreenshotUtil screenshotUtil = new ScreenshotUtil(driver);
 		
@@ -24,7 +28,9 @@ public class ScheduleAppointmentTests extends FrameworkLibrary{
 		
 		sa.login(prop.getProperty("patient_username"),prop.getProperty("patient_password"));
 
-		screenshotUtil.captureScreenshot("SCH_001_Login");
+		
+		String screenshotPath = screenshotUtil.captureScreenshot("HomePage");
+		extentTest.addScreenCaptureFromPath(screenshotPath, "HomePage of MMP WebSite");
 		
 		sa.selectModule("Schedule Appointment");
 

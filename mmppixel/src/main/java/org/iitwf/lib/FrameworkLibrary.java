@@ -9,12 +9,31 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
+
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 public class FrameworkLibrary {
 
 	protected Properties prop;
 	protected WebDriver driver;
+	protected ExtentReports extent;
 	private static String browserType,environment;
+	
+	@BeforeSuite
+	public void loadReports()
+	{
+
+		// directory where output is to be printed
+		String reporterFilePath = System.getProperty("user.dir")+"//reports//MMPReport.html";
+		File reporterFile = new File(reporterFilePath);
+		
+		ExtentSparkReporter spark = new ExtentSparkReporter(reporterFile);
+		extent = new ExtentReports();
+		extent.attachReporter(spark);
+	}
+
 	@BeforeClass
 	public void setUp() throws IOException
 	{

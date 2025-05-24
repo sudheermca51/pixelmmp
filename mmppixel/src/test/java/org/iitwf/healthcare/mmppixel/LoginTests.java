@@ -1,33 +1,33 @@
 package org.iitwf.healthcare.mmppixel;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.iitwf.healthcare.mmp.pm.pages.HomePage;
+import org.iitwf.healthcare.mmp.pm.pages.LoginPage;
+import org.iitwf.lib.FrameworkLibrary;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 //ctrl+shift+o organize imports
 //project configuration ->right click on pom.xml -> Maven - > update
-public class LoginTests {
+public class LoginTests extends FrameworkLibrary{
 	
-	public static void main(String[] args) {
+	@Test
+	public  void loginAsValidUser() {
 		
-		WebDriver driver = new ChromeDriver();
-		//Launch login page
-		driver.get("https://o2.openmrs.org/openmrs/login.htm");
-
-		//Enter credentials
-		driver.findElement(By.id("username")).sendKeys("Admin");
-		driver.findElement(By.name("password")).sendKeys("Admin123");
-
-		//select location and login
-		driver.findElement(By.id("Inpatient Ward")).click();
+		launchBrowser(prop.getProperty("patient_url"));
+		LoginPage lPage = new LoginPage(driver);
+		HomePage hPage = lPage.login(prop.getProperty("patient_username"),prop.getProperty("patient_password"));
+		String actual = hPage.getLoginSuccessfulMsg();
+		String expected = prop.getProperty("patient_username");
+		Assert.assertEquals(actual, expected);
 		
-		driver.findElement(By.xpath("//input[@Value='Log In']")).click();
-
-		//verify login message
-		String logInMsg = driver.findElement(By.xpath("//h4")).getText();
-
-		System.out.println("Log In MSg"+ logInMsg);
+//		lPage.login(prop.getProperty("patient_username"),prop.getProperty("patient_password"));
+//		HomePage hPage = new HomePage(driver);
+//		String actual = hPage.getLoginSuccessfulMsg();
+//		String expected = prop.getProperty("patient_username");
+//		Assert.assertEquals(actual, expected);
 		
+		String title = driver.getTitle();
+		System.out.println(title.length());
 	}
 
 }

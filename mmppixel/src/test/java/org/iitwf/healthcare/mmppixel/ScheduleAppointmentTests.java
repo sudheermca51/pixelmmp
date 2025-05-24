@@ -3,6 +3,9 @@ package org.iitwf.healthcare.mmppixel;
 import java.io.IOException;
 import java.util.HashMap;
 
+import org.iitwf.healthcare.mmp.pm.pages.HomePage;
+import org.iitwf.healthcare.mmp.pm.pages.LoginPage;
+import org.iitwf.healthcare.mmp.pm.pages.ScheduleAppointmentPage;
 import org.iitwf.lib.FrameworkLibrary;
 import org.iitwf.lib.ScreenshotUtil;
 import org.testng.Assert;
@@ -11,8 +14,7 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.ExtentTest;
 
 public class ScheduleAppointmentTests extends FrameworkLibrary{
-	
-	MMPCustomLibrary sa;	
+		
 	@Test
 	public void MMP_PAT_SCH_001_Schedule_Appointment() throws IOException
 	{
@@ -21,24 +23,21 @@ public class ScheduleAppointmentTests extends FrameworkLibrary{
 		
 		launchBrowser(prop.getProperty("patient_url"));
 		extentTest.info("Loading the website successfully");
-		sa = new MMPCustomLibrary(driver);
+		LoginPage lPage = new LoginPage(driver);
 		ScreenshotUtil screenshotUtil = new ScreenshotUtil(driver);
-		
-		System.out.println("from test" + sa);
-		
-		sa.login(prop.getProperty("patient_username"),prop.getProperty("patient_password"));
-
-		
+		HomePage hPage = lPage.login(prop.getProperty("patient_username"),prop.getProperty("patient_password"));
 		String screenshotPath = screenshotUtil.captureScreenshot("HomePage");
 		extentTest.addScreenCaptureFromPath(screenshotPath, "HomePage of MMP WebSite");
 		
-		sa.selectModule("Schedule Appointment");
+		hPage.selectModule("Schedule Appointment");
 
-		HashMap<String,String> expectedHMap =sa.bookAppointment(365,"d/MMMM/YYYY","Cardiologist","11Am");
+		ScheduleAppointmentPage sPage = new ScheduleAppointmentPage(driver);
+		
+		HashMap<String,String> expectedHMap =sPage.bookAppointment(365,"d/MMMM/YYYY","Cardiologist","11Am");
 		System.out.println("Expected HMap :::" + expectedHMap);
 		screenshotUtil.captureScreenshot("SCH_001_Book_Appointment");
 		
-		HashMap<String,String> actualHMap  = sa.fetchPatientPortalData();
+		HashMap<String,String> actualHMap  = hPage.fetchPatientPortalData();
 		System.out.println("Actual HMap :::" + actualHMap);
 		screenshotUtil.captureScreenshot("SCH_001_Fetch_Book_Appointment_Data");
 		

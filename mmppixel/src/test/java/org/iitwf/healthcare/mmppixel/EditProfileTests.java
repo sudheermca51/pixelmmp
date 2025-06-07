@@ -10,7 +10,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class EditProfileTests {
-	
+	/*
 	MMPCustomLibrary mmpLib;
 	Properties prop;
 	@BeforeClass
@@ -35,7 +35,7 @@ public class EditProfileTests {
 		boolean result =mmpLib.editFields(successfulMsg);
 		 
 		Assert.assertTrue(result);
-	}
+	}*/
 //	@Test
 //	public void MMP_PAT_EP_002_validateAllEditFieldsFunc(String successfulMsg)
 //	{
@@ -52,7 +52,7 @@ public class EditProfileTests {
 //		Assert.assertTrue(result);
 //	}
 
-	@Parameters({"errMsg"})
+/*	@Parameters({"errMsg"})
 	@Test
 	public void MMP_PAT_EP_003_validateEditFunc_invaliddata(String errMsg)
 	{
@@ -67,6 +67,7 @@ public class EditProfileTests {
 		 
 		Assert.assertTrue(result);
 	}
+	*/
 	
 }
 

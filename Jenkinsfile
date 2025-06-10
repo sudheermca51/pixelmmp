@@ -13,7 +13,7 @@ pipeline {
                git branch: 'main', url: 'https://github.com/sudheermca51/pixelmmp.git'
                dir('mmppixel') 
                {
-                           sh 'mvn clean test'
+                           bat 'mvn clean test'
                }
             }
         }

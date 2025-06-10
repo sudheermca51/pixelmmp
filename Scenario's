@@ -1,0 +1,21 @@
+Login
+Schedule Appointment
+Edit Profile
+Send Messages
+	http://85.209.95.122/MMP-Release2-Integrated-Build.6.8.000/portal/login.php
+	ria1/Ria12345
+	Login to Patient module 
+	Click on MEssages 
+	>>Verify the pop-up and message 
+	http://85.209.95.122/MMP-Release2-Admin-Build.2.1.000/login.php
+	Ben@123/Frank@123
+	Login to Admin Module 
+	Click on Messages 
+	Verify the details displayed in the tabular format 
+	>>Patient Name
+	>>Message 
+	>>Date 
+
+Registration->Approve 
+View Therapy Details
+Logout

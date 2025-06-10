@@ -6,7 +6,7 @@ pipeline {
             steps {
                 git branch: 'main', url: 'https://github.com/sudheermca51/gitbash_repo.git'
                 dir('gitbash_repo') {
-                           sh 'mmphealthcheck.bat'
+                           bat label: 'mmpbatchscript', script: 'mmphealthcheck.bat'
                 }
             }
         }

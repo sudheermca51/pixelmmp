@@ -15,7 +15,7 @@ import com.aventstack.extentreports.ExtentTest;
 
 public class ScheduleAppointmentTests extends FrameworkLibrary{
 		
-	@Test
+	@Test(groups={"regression", "scheduleappointment" ,"ui"})
 	public void MMP_PAT_SCH_001_Schedule_Appointment() throws IOException
 	{
 		ExtentTest extentTest = extent.createTest("##########Schedule Appointment Tests######################");

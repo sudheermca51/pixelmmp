@@ -64,9 +64,10 @@
       					  <artifactId>maven-surefire-plugin</artifactId>
       					  <version>3.5.3</version>
       					  <configuration>
-      						    <suiteXmlFiles>
+      					  <suiteXmlFiles>
         						    <suiteXmlFile>mmpsuite.xml</suiteXmlFile>
-       						   </suiteXmlFiles>
+       					  </suiteXmlFiles>
+      					  <!-- <groups>ui</groups> -->
         				</configuration>
      				 </plugin>
 				<plugin>

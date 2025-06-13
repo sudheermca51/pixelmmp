@@ -18,7 +18,7 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.ExtentTest;
 
 public class SendMessageTests extends FrameworkLibrary {
-	@Test
+	@Test(groups={"regression", "sendmessages" ,"ui"})
 	public void MMP_PAT_SNDM_001_Send_Messages() throws IOException {
 		ExtentTest extentTest = extent.createTest("##########Send Messages Tests######################");
 

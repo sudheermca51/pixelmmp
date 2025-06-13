@@ -8,18 +8,17 @@ import java.util.TimeZone;
 public class FutureDate {
 
 	public static void main(String[] args) {
-
-		String expectedOutput = generateFutureDate(0, "dd/MMMM/YYYY");
-		String outputArray[] = expectedOutput.split("/");
-		System.out.println(outputArray[0]);
-		System.out.println(outputArray[1]);
-		System.out.println(outputArray[2]);
-		System.out.println("Expected Output" + expectedOutput);
-
-		String stockName = "123";
-		double d = Double.parseDouble(stockName.replace("$", ""));
-		System.out.println(d);
-
+		System.out.println(generateFutureDate(0, "dd-MM-yyyy"));
+		/*
+		 * String expectedOutput = generateFutureDate(0, "dd/MMMM/YYYY"); String
+		 * outputArray[] = expectedOutput.split("/");
+		 * System.out.println(outputArray[0]); System.out.println(outputArray[1]);
+		 * System.out.println(outputArray[2]); System.out.println("Expected Output" +
+		 * expectedOutput);
+		 * 
+		 * String stockName = "123"; double d =
+		 * Double.parseDouble(stockName.replace("$", "")); System.out.println(d);
+		 */
 	}
 
 	public static String generateFutureDate(int n, String format) {

@@ -22,7 +22,7 @@ public class PatientApprovalTests extends FrameworkLibrary{
 public void MMP_PAT_001_PatientApproval() throws IOException
 {
 	ExtentTest extentTest = extent.createTest("##########Schedule Appointment Tests######################");
-	
+	 
 	launchBrowser(prop.getProperty("patientReg_url"));
 	extentTest.info("Loading the website successfully");
 	ScreenshotUtil screenshotUtil = new ScreenshotUtil(driver);

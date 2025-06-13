@@ -17,7 +17,7 @@ public class UsersPage {
 
 	public UsersPage(WebDriver driver) {
 		this.driver = driver;
-
+ 
 	}
 
 	public void approveUser(HashMap<String, String> regHMap) {

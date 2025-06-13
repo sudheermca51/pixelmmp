@@ -4,6 +4,6 @@
   <test thread-count="5" name="Test">
     <classes>
       <class name="org.iitwf.healthcare.mmppixel.PatientApprovalTests"/>
-    </classes>
+    </classes> 
   </test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -19,7 +19,7 @@ public class PatientRegistrationPage {
 	public PatientRegistrationPage(WebDriver driver) {
 		this.driver = driver;
 
-	}
+	} 
 
 	public HashMap<String, String> registerPatient() {
 		String fName = RandomUtils.generateRandomString(6);
@@ -30,24 +30,25 @@ public class PatientRegistrationPage {
 		String password = RandomUtils.generateRandomPwd(9);
 		click("id", "firstname", fName);
 		click("id", "lastname", lName);
-		click("id", "datepicker", "12212000");
-		click("id", "license", "00000000");
+		click("id", "datepicker", RandomUtils.generateRandomNumber(8));
+	//	click("id", "license", licenseNumber);
+	    click("id", "license", "25639852");
 		click("id", "ssn", ssn);
-		click("id", "state", "TN");
-		click("id", "city", "Franklin");
-		click("id", "address", "Carlisle Pl");
-		click("id", "zipcode", "30720");
-		click("id", "age", "32");
-		click("id", "height", "154");
-		click("id", "weight", "112");
-		click("id", "pharmacy", "My Pharmacy");
-		click("id", "pharma_adress", "Franklin Pharmacy");
+		click("id", "state", RandomUtils.generateRandomString(6));
+		click("id", "city", RandomUtils.generateRandomString(6));
+		click("id", "address", RandomUtils.generateRandomString(9));
+		click("id", "zipcode", RandomUtils.generateRandomNumber(5));
+		click("id", "age", RandomUtils.generateRandomNumber(2));
+		click("id", "height",String.valueOf(RandomUtils.generateRandomInteger(50, 100)));
+		click("id", "weight", String.valueOf(RandomUtils.generateRandomInteger(20, 100)));
+		click("id", "pharmacy", RandomUtils.generateRandomString(6));
+		click("id", "pharma_adress", RandomUtils.generateRandomString(12));
 		click("id", "email", RandomUtils.generateRandomEmailID());
 		click("id", "username", userName);
 		click("id", "password", password);
 		click("id", "confirmpassword", password);
 		select("id", "security", "what is your pet name");
-		click("id", "answer", "Bob");
+		click("id", "answer", RandomUtils.generateRandomString(3));
 		click("name", "register");
 		acceptAlert();
 

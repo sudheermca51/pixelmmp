@@ -7,7 +7,7 @@ pipeline {
                      echo 'pixel_mmp_healthcheck..'
             script{
                 try{
-                    git branch: 'main', url: 'https://github.com/sudheermca51/gitbash_repo.git'
+                    git branch: 'main', url: 'https://github.com/Bhavani2112/mmp_repo.git'
                     bat label: 'mmpbatchscript', script: 'mmphealthcheck.bat'
                   }
              
@@ -21,7 +21,7 @@ pipeline {
         stage('pixel_mmp_regtests') {
             steps {
 			   echo 'Building Bhavani file..'
-               git branch: 'main', url: 'https://github.com/sudheermca51/pixelmmp.git'
+               git branch: 'main', url: 'https://github.com/Bhavani2112/mmp_repo.git'
                dir('mmppixel') 
                {
                            bat 'mvn clean test'

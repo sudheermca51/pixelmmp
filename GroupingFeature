@@ -1,0 +1,22 @@
+Ensure the TESTNG tests are grouped in the following way::
+Hint: https://maven.apache.org/surefire/maven-surefire-plugin/examples/testng.html
+
+groups={"regression","sendmessages","ui"}
+
+groups={"sanity","sendmessages","ui"}
+
+groups={"sanity","sendmessages","api"}
+
+Run all sendMessagestests => 3 
+Run all sanity => 2
+Run all sendmessages ,regression,ui -> 1
+
+*****Run all  regression,ui -> 1
+
+
+pom.xml 
+	group name= ui,regression
+#######################
+Next Steps:
+#######################
+Pass the groupname as a parameter from Jenkins pipeline job

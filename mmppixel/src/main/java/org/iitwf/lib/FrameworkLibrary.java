@@ -80,8 +80,25 @@ public class FrameworkLibrary {
 		FileInputStream fis = new FileInputStream(f);
 		Properties prop = new Properties();
 		prop.load(fis);
+		fis.close();
+		System.out.println("Properties file loaded successfully from path: " + filePath);
+		System.out.println("Property value for 'browserType': " + prop.getProperty("browserType"));
+		System.out.println("Property value for 'environment': " + prop.getProperty("environment"));
 		return prop;
 
+	}
+	
+	public void closeBrowser()
+	{
+		if(driver != null)
+		{
+			driver.quit();
+		}
+		if(extent != null)
+		{
+			extent.flush();
+		}
+		System.out.println("Browser closed and extent report flushed successfully.");
 	}
 
 

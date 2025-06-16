@@ -1,7 +1,5 @@
 package org.iitwf.healthcare.mmp.pm.pages;
 
-import java.util.HashMap;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -25,6 +23,13 @@ public class LoginPage {
 		driver.findElement(passwordBy).sendKeys(pword);
 		driver.findElement(signinBy).click();
 		return new HomePage(driver);
+	}
+	
+	public void loginNoHomePage(String uname, String pword, String url) {
+		driver.get(url);
+		driver.findElement(usernameBy).sendKeys(uname);
+		driver.findElement(passwordBy).sendKeys(pword);
+		driver.findElement(signinBy).click();
 	}
 	 
 }

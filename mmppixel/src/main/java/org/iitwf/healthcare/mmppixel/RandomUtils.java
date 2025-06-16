@@ -31,6 +31,13 @@ public class RandomUtils {
 		return value;
 	}
 	
+	 public static int generateRandomEightDigitNumber() {
+	        Random random = new Random();
+	        int lowerBound = 10000000;
+	        int range = 90000000; // 99999999 - 10000000 + 1 = 90000000
+	        return lowerBound + random.nextInt(range);
+	    }
+	
 	public static void main(String[] args) {
 
 		//ASCII Table

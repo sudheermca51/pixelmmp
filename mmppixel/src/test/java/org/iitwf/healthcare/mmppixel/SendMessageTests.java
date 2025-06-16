@@ -8,17 +8,15 @@ import org.iitwf.healthcare.mmp.pm.pages.AdminLoginPage;
 import org.iitwf.healthcare.mmp.pm.pages.HomePage;
 import org.iitwf.healthcare.mmp.pm.pages.LoginPage;
 import org.iitwf.healthcare.mmp.pm.pages.MessagesPage;
-import org.iitwf.healthcare.mmp.pm.pages.ScheduleAppointmentPage;
 import org.iitwf.lib.FrameworkLibrary;
 import org.iitwf.lib.ScreenshotUtil;
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.aventstack.extentreports.ExtentTest;
 
 public class SendMessageTests extends FrameworkLibrary {
-	@Test
+	@Test(groups={ "regression", "ui" })
 	public void MMP_PAT_SNDM_001_Send_Messages() throws IOException {
 		ExtentTest extentTest = extent.createTest("##########Send Messages Tests######################");
 

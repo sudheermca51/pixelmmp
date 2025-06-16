@@ -23,7 +23,6 @@ public class RegisterPage {
 
 	public RegisterPage(WebDriver driver) {
 		this.driver = driver;
-
 	}
 
 	public static HashMap<String, String> expectedUserNameHMap = new HashMap<>();
@@ -70,6 +69,7 @@ public class RegisterPage {
 
 		Select dropDown = new Select(driver.findElement(By.id("security")));
 		dropDown.selectByVisibleText("what is your pet name");
+		
 		driver.findElement(By.id("answer")).sendKeys(RandomUtils.generateRandomString(3));
 		driver.findElement(By.xpath("//input[@value='Save']")).click();
 
@@ -81,7 +81,5 @@ public class RegisterPage {
 		} catch (Exception e) {
 			System.out.println("No alert appeared. Exception: " + e.getMessage());
 		}
-
 	}
-
 }

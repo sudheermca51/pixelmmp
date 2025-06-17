@@ -40,7 +40,7 @@ public class AdminHomePage {
 		HashMap<String, String> actualHMap = new HashMap<String, String>();
 		actualHMap.put("patientName", actualPatientName);
 		actualHMap.put("reason", actualReason);
-		actualHMap.put("msg", actualMessage);
+		actualHMap.put("message", actualMessage);
 		actualHMap.put("date", actualDate);
 
 		return actualHMap;

@@ -26,6 +26,7 @@ public class AdminProfilePage {
 
 	public static void alertHandle(String message)
 	{
+		
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 		Alert alert = wait.until(ExpectedConditions.alertIsPresent());
 		try {

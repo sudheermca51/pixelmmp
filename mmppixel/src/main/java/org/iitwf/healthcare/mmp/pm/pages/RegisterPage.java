@@ -28,6 +28,7 @@ public class RegisterPage {
 	public static HashMap<String, String> expectedUserNameHMap = new HashMap<>();
 
 	public static void registrationDetails() {
+		
 		WebElement firstNameField = driver.findElement(By.id("firstname"));
 		fname = RandomUtils.generateRandomString(8);
 		System.out.println("Generated FirstName:" + fname);

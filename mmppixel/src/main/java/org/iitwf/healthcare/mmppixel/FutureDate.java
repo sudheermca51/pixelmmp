@@ -9,7 +9,7 @@ public class FutureDate {
 
 	public static void main(String[] args) {
 
-		String expectedOutput = generateFutureDate(0, "dd/MMMM/YYYY");
+		String expectedOutput = generateFutureDate(1, "dd/MMMM/YYYY");
 		String outputArray[] = expectedOutput.split("/");
 		System.out.println(outputArray[0]);
 		System.out.println(outputArray[1]);

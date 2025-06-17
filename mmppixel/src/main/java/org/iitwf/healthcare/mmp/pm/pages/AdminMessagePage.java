@@ -14,7 +14,7 @@ public class AdminMessagePage {
 	}
 
 	public HashMap<String, String> fetchmessage() {
-
+		
 		String actualPatientName = driver.findElement(By.xpath("//table[@class='table']/tbody/tr[2]/td[1]/b"))
 				.getText();
 		String actualReason = driver.findElement(By.xpath("//table[@class='table']/tbody/tr[2]/td[2]/b")).getText();

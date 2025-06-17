@@ -26,5 +26,9 @@ public class LoginPage {
 		driver.findElement(signinBy).click();
 		return new HomePage(driver);
 	}
+	public void clickRegister()
+	{
+		driver.findElement(By.xpath("//input[@value='Register']")).click();
+	}
 	 
 }

@@ -10,12 +10,10 @@ import org.iitwf.lib.FrameworkLibrary;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.aventstack.extentreports.ExtentTest;
-
 public class PatientRegAndApprovalTests extends FrameworkLibrary {
 	@Test
 	public void PatientRegistration() {
-		ExtentTest extentTest = extent.createTest("##########Test Case :: Register Patient##############");
+		
 		launchBrowser(prop.getProperty("patient_url"));
 		LoginPage loginPage = new LoginPage(driver);
 		loginPage.clickOnrRegisterBtn().registerNewPatient(RandomUtils.generateRandomString(5), // first name
@@ -52,8 +50,7 @@ public class PatientRegAndApprovalTests extends FrameworkLibrary {
 		loginPage.login(RegistrationPage.userName, RegistrationPage.password);
 		HomePage homePage=new HomePage(driver);
 		Assert.assertNotEquals(homePage.getLoginSuccessfulMsg(), RegistrationPage.userName);
-		
-		
+	
 		
 		
 		

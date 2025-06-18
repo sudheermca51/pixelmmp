@@ -8,7 +8,8 @@ public class AdminLoginPage {
 	private By usernameBy = By.id("username");
 	private By passwordBy = By.id("password");
 	private By signinBy = By.name("admin");
-	 
+	
+	
 	
 	protected WebDriver driver;
 	public AdminLoginPage(WebDriver driver)
@@ -24,5 +25,11 @@ public class AdminLoginPage {
 		driver.findElement(signinBy).click();
 		return new AdminHomePage(driver);
 	}
+	
+	
+	
+	
+	
+	
 
 }

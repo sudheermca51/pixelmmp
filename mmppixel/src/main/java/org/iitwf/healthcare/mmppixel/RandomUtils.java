@@ -31,13 +31,18 @@ public class RandomUtils {
 		return value;
 	}
 	
+	public static String randomEmail() {
+		String randomEmail = "AUTQA_"+generateRandomChars(65,90)+generateRandomChars(97,122)+generateRandomNumber(100,200)+"@gmail.com";
+		return randomEmail;
+	}
+	
 	public static void main(String[] args) {
 
 		//ASCII Table
 		//65-A to  90-Z
 		//97-a to 122-z
 		
- String randomEmail = "AUTQA_"+generateRandomChars(65,90)+generateRandomChars(97,122)+generateRandomNumber(100,200)+"@gmail.com";
+String randomEmail = "AUTQA_"+generateRandomChars(65,90)+generateRandomChars(97,122)+generateRandomNumber(100,200)+"@gmail.com";
 //		
  System.out.println(randomEmail);
 //		 

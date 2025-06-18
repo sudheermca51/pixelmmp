@@ -19,6 +19,7 @@ public class FutureDate {
 		String stockName = "123";
 		double d = Double.parseDouble(stockName.replace("$", ""));
 		System.out.println(d);
+		System.out.println(getPastDate(10,"dd/MM/yyyy","Asia/Kolkata")+"**********");
 
 	}
 
@@ -46,4 +47,16 @@ public class FutureDate {
 		return formattedDate;
 
 	}
+	
+	public static String getPastDate(int yearsBack, String timeFormat, String timeZone) {
+		Calendar calendar = Calendar.getInstance();
+		calendar.add(Calendar.YEAR, -yearsBack);
+		TimeZone tz = TimeZone.getTimeZone(timeZone);
+		calendar.setTimeZone(tz);
+		SimpleDateFormat sdf = new SimpleDateFormat(timeFormat);
+		sdf.setTimeZone(tz);
+		return sdf.format(calendar.getTime());
+	}
+	
+	
 }

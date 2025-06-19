@@ -1,5 +1,7 @@
 package org.iitwf.healthcare.mmppixel;
 
+import java.io.IOException;
+
 import org.iitwf.healthcare.mmp.pm.pages.AdminHomePage;
 import org.iitwf.healthcare.mmp.pm.pages.AdminLoginPage;
 import org.iitwf.healthcare.mmp.pm.pages.AdminUsersPages;
@@ -7,13 +9,16 @@ import org.iitwf.healthcare.mmp.pm.pages.HomePage;
 import org.iitwf.healthcare.mmp.pm.pages.LoginPage;
 import org.iitwf.healthcare.mmp.pm.pages.RegistrationPage;
 import org.iitwf.lib.FrameworkLibrary;
+import org.iitwf.lib.ScreenshotUtil;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentTest;
+
 public class PatientRegAndApprovalTests extends FrameworkLibrary {
 	@Test
-	public void PatientRegistration() {
-		
+	public void PatientRegistration() throws IOException {
+		ExtentTest extentTest = extent.createTest("##########Registration->Patient Approval Process Test Started ######################");
 		launchBrowser(prop.getProperty("patient_url"));
 		LoginPage loginPage = new LoginPage(driver);
 		loginPage.clickOnrRegisterBtn().registerNewPatient(RandomUtils.generateRandomString(5), // first name
@@ -49,7 +54,17 @@ public class PatientRegAndApprovalTests extends FrameworkLibrary {
 		launchBrowser(prop.getProperty("patient_url"));
 		loginPage.login(RegistrationPage.userName, RegistrationPage.password);
 		HomePage homePage=new HomePage(driver);
-		Assert.assertNotEquals(homePage.getLoginSuccessfulMsg(), RegistrationPage.userName);
+		
+		if (homePage.getLoginSuccessfulMsg().equals(RegistrationPage.userName)) {
+            System.out.println("Test Passed");
+        } else {
+            // Capture screenshot on failure
+        	ScreenshotUtil screenshotUtil = new ScreenshotUtil(driver);
+        	String screenshotPath = screenshotUtil.captureScreenshot("Test_Patient_Approval_Process_failed");
+        	extentTest.addScreenCaptureFromPath(screenshotPath, "Test_Patient_Approval_Process");
+            Assert.fail("Login test failed. User name does not match.");
+        }
+    }
 	
 		
 		
@@ -85,7 +100,7 @@ public class PatientRegAndApprovalTests extends FrameworkLibrary {
 	 * LoginPage(driver); loginPage.login(RegistrationPage.userName,
 	 * RegistrationPage.password); }
 	 */
-}
+
 
 
 

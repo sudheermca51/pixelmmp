@@ -7,7 +7,7 @@ pipeline {
                     
             script{
                 try{
-                    git branch: 'main', url: 'https://github.com/sudheermca51/gitbash_repo.git'
+                    git branch: ${env.BRANCH_NAME}, url: 'https://github.com/sudheermca51/gitbash_repo.git'
                     bat label: 'mmpbatchscript', script: 'mmphealthcheck.bat'
                   }
              

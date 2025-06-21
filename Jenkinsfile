@@ -11,7 +11,7 @@ pipeline {
                     bat label: 'mmpbatchscript', script: 'mmphealthcheck.bat'
                   }
              
-            catch(err) {
+            catchError(err) {
                   echo "pixel_mmp_healthcheck job failed"
                   echo "Caught: ${err}"
              }

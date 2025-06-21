@@ -7,7 +7,7 @@ pipeline {
                     
             script{
                 try{
-                    git branch: "${env.BRANCH_NAME}", url: 'https://github.com/sudheermca51/gitbash_repo.git'
+                    git branch: ${env.BRANCH_NAME}, url: 'https://github.com/sudheermca51/gitbash_repo.git'
                     bat label: 'mmpbatchscript', script: 'mmphealthcheck.bat'
                   }
              
@@ -20,7 +20,7 @@ pipeline {
         }
         stage('pixel_mmp_regtests') {
             steps {
-               git branch: "${env.BRANCH_NAME}", url: 'https://github.com/sudheermca51/pixelmmp.git'
+               git branch: ${env.BRANCH_NAME}, url: 'https://github.com/sudheermca51/pixelmmp.git'
                dir('mmppixel') 
                {
                            bat 'mvn clean test'

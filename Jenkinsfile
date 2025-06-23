@@ -7,21 +7,6 @@ pipeline {
 
     stages {
         stage('pixel_mmp_healthcheck') {
-<<<<<<< HEAD
-                steps {
-                    
-            script{
-                try{
-                    git branch: "${params.branch_name}", url: 'https://github.com/sudheermca51/gitbash_repo.git'
-                    bat label: 'mmpbatchscript', script: 'mmphealthcheck.bat'
-                  }
-             
-            catch(err) {
-                  echo "pixel_mmp_healthcheck job failed"
-                  echo "Caught: ${err}"
-             }
-            }
-=======
             steps {
                 script {
                     try {
@@ -31,20 +16,12 @@ pipeline {
                         echo "pixel_mmp_healthcheck job failed"
                         echo "Caught: ${err}"
                     }
->>>>>>> main
                 }
             }
         }
 
         stage('pixel_mmp_regtests') {
             steps {
-<<<<<<< HEAD
-               git branch: "${params.branch_name}", url: 'https://github.com/sudheermca51/pixelmmp.git'
-               dir('mmppixel') 
-               {
-                           bat 'mvn clean test'
-               }
-=======
                 script {
                     // Clone the repo into workspace
                     git branch: "${params.branch_name}", url: 'https://github.com/sudheermca51/pixelmmp.git'
@@ -56,7 +33,6 @@ pipeline {
                         }
                     }
                 }
->>>>>>> main
             }
         }
     }

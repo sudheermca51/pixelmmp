@@ -1,9 +1,14 @@
 package org.iitwf.healthcare.mmp.pm.pages;
 
 import java.util.HashMap;
-
+import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+
 
 public class HomePage {
 	private By validMsgBy = By.tagName("h3");
@@ -20,10 +25,25 @@ public class HomePage {
 	}
 
 	public void selectModule(String moduleName) {
-		// 2. Click on Schedule Appointment module.
-		driver.findElement(By.xpath("//span[normalize-space()='" + moduleName + "']")).click();
-
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+	    
+	    // Wait for overlay to disappear
+	    wait.until(ExpectedConditions.invisibilityOfElementLocated(By.cssSelector("div.progress.progress-striped.active.skylo")));
+	    
+	    // Wait until the module element is clickable
+	    WebElement moduleElement = wait.until(ExpectedConditions.elementToBeClickable(
+	        By.xpath("//span[normalize-space()='" + moduleName + "']")
+	    ));
+	    
+	    // Now click the element safely
+	    moduleElement.click();
 	}
+	
+	//public void selectModule(String moduleName) {
+		// 2. Click on Schedule Appointment module.
+		//driver.findElement(By.xpath("//span[normalize-space()='" + moduleName + "']")).click();
+
+	//}
 
 	public HashMap<String, String> fetchPatientPortalData() {
 		System.out.println("#########################Actual Values######################################");

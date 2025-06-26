@@ -8,6 +8,7 @@ import java.util.Properties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 
@@ -83,6 +84,14 @@ public class FrameworkLibrary {
 		return prop;
 
 	}
+	@AfterSuite
+   	public void tearDownExtentReport() {
+        if (extent != null) {
+            extent.flush();
+            System.out.println("Extent report flushed and saved.");
+        }
+    }
+
 
 
 }

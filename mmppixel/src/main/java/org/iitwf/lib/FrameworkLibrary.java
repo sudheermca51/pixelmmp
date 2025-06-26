@@ -83,6 +83,13 @@ public class FrameworkLibrary {
 		return prop;
 
 	}
+	@AfterSuite
+   	public void tearDownExtentReport() {
+        if (extent != null) {
+            extent.flush();
+            System.out.println("Extent report flushed and saved.");
+        }
+    }
 
 
 }

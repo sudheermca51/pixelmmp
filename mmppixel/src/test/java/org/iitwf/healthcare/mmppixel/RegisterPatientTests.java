@@ -15,7 +15,6 @@ public class RegisterPatientTests extends FrameworkLibrary {
 	RegisterPatientPage regPage;
 	HomePage homePage;
 	ExtentTest extentTest;
-	ScreenshotUtil ssu;
 	
 	/**
 	 * This test case is used to register a new patient in the system.
@@ -27,7 +26,6 @@ public class RegisterPatientTests extends FrameworkLibrary {
 	@Test(groups = { "regression", "ui" })
 	public void MMP_PAT_REG_001_Register_Patient() throws IOException {
 		ExtentTest extentTest = extent.createTest("##########Register Patient Tests######################");
-		ssu = new ScreenshotUtil();
 		extentTest.info("Starting the patient registration test.");
 		regPage = new RegisterPatientPage(driver);
 		extentTest.info("Loading the website successfully");

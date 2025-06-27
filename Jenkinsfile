@@ -11,7 +11,7 @@ pipeline {
                 script {
                     try {
                         git branch: "${params.branch_name}", url: 'https://github.com/sudheermca51/gitbash_repo.git'
-                        bat label: 'mmpshellscript', script: '1.sh'
+                        bat label: 'mmpshellscript', script: 'mmppixel_hlth-check.sh'
                     } catch (err) {
                         echo "pixel_mmp_healthcheck job failed"
                         echo "Caught: ${err}"

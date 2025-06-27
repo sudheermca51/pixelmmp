@@ -5,6 +5,11 @@ pipeline {
     string(name: 'branch_name', defaultValue: 'main', description: 'Git branch to build')
   }
 
+  tools {
+    jdk 'jdk23'        // Ensure you've configured JDK 23 in Manage Jenkins ▸ Global Tool Configuration
+    maven 'mvn_home'   // Likewise, ensure Maven is named mvn_home
+  }
+
   stages {
     stage('pixel_mmp_healthcheck') {
       steps {
@@ -26,19 +31,26 @@ pipeline {
       steps {
         script {
           git branch: params.branch_name, url: 'https://github.com/sudheermca51/pixelmmp.git'
-
           dir('mmppixel') {
+            def javaHome = tool name: 'jdk23', type: 'jdk'
             def mvnHome = tool name: 'mvn_home', type: 'maven'
             withEnv([
-              "PATH+MAVEN=${mvnHome}/bin",
-              // If your mac agent needs it, e.g. /usr/local/bin for brew-installed tools
-              "PATH+BREW=/usr/local/bin:/opt/homebrew/bin"
+              "JAVA_HOME=${javaHome}",
+              "PATH+JAVA=${javaHome}/bin",
+              "PATH+MAVEN=${mvnHome}/bin"
             ]) {
+              sh 'java -version'
               sh 'mvn clean test'
             }
           }
         }
       }
+    }
+  }
+
+  post {
+    always {
+      echo "Build completed with status: ${currentBuild.currentResult}"
     }
   }
 }

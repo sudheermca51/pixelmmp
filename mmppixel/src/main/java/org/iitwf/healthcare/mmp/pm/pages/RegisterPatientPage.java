@@ -3,7 +3,7 @@ package org.iitwf.healthcare.mmp.pm.pages;
 import java.io.IOException;
 
 import org.iitwf.healthcare.mmppixel.RandomUtils;
-import org.iitwf.healthcare.mmppixel.ScreenshotUtil;
+import org.iitwf.lib.ScreenshotUtil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -11,7 +11,7 @@ public class RegisterPatientPage {
 
 	private WebDriver driver;
 	private String password;
-	ScreenshotUtil ssu = new ScreenshotUtil(); 
+	ScreenshotUtil ssu = new ScreenshotUtil(driver); 
 	
 	// Locators for various elements on the Register Patient page can be added here
 	By firstNameBy = By.id("firstname");

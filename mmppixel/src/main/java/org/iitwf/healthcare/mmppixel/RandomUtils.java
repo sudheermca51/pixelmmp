@@ -31,6 +31,21 @@ public class RandomUtils {
 		return value;
 	}
 	
+	public static int generateRandomNDigitNumber(int n) {
+	    if (n <= 0) {
+	        throw new IllegalArgumentException("Number of digits must be greater than 0");
+	    }
+	    Random random = new Random();
+	    int lowerBound = (int) Math.pow(10, n - 1);
+	    if (lowerBound <= 0) {
+	        lowerBound = 1;
+	    }
+	    int upperBound = (int) Math.pow(10, n) - 1;
+	    // Generate a random number between lowerBound and upperBound inclusive
+	    return lowerBound + random.nextInt(upperBound - lowerBound + 1);
+	}
+
+	
 	public static void main(String[] args) {
 
 		//ASCII Table

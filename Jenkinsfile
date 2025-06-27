@@ -11,7 +11,7 @@ pipeline {
                 script {
                     try {
                         git branch: "${params.branch_name}", url: 'https://github.com/sudheermca51/gitbash_repo.git'
-                        bat label: 'mmpbatchscript', script: 'mmphealthcheck.bat'
+                        bat label: 'mmpshellscript', script: '1.sh'
                     } catch (err) {
                         echo "pixel_mmp_healthcheck job failed"
                         echo "Caught: ${err}"
@@ -29,7 +29,7 @@ pipeline {
                     // Navigate to mmppixel and run Maven
                     dir('mmppixel') {
                         withEnv(["PATH+MAVEN=${tool 'mvn_home'}/bin"]) {
-                            bat 'mvn clean test'
+                            sh 'mvn clean test'
                         }
                     }
                 }

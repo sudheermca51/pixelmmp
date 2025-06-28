@@ -19,7 +19,7 @@ import com.aventstack.extentreports.ExtentTest;
 public class PatientApprovalTests extends FrameworkLibrary{
 	
 @Test(groups={"regression", "patientapproval" ,"ui"})
-public void MMP_PAT_001_PatientApproval() throws IOException, InterruptedException
+public void MMP_PAT_001_PatientApproval() throws IOException
 {
 	ExtentTest extentTest = extent.createTest("##########Patient Approval Tests######################");
 	 

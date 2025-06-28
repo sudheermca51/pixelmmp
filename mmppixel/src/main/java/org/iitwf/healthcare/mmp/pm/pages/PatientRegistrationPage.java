@@ -1,8 +1,6 @@
 package org.iitwf.healthcare.mmp.pm.pages;
-
 import java.time.Duration;
 import java.util.HashMap;
-
 import org.iitwf.healthcare.mmppixel.FutureDate;
 import org.iitwf.healthcare.mmppixel.RandomUtils;
 import org.openqa.selenium.Alert;
@@ -16,7 +14,7 @@ public class PatientRegistrationPage {
 
 	protected WebDriver driver;
 	
-	// Locators for various elements on the Register Patient page can be added here
+	// Locators for various elements on the Register Patient page
 		By firstNameBy = By.id("firstname");
 		By lastNameBy = By.id("lastname");
 		By dobBy = By.id("datepicker");
@@ -46,7 +44,7 @@ public class PatientRegistrationPage {
 
 	} 
 
-	public HashMap<String, String> registerPatient() throws InterruptedException {
+	public HashMap<String, String> registerPatient() {
 		String fName = RandomUtils.generateRandomString(6);
 		String lName = RandomUtils.generateRandomString(6);
 		String licenseNumber = RandomUtils.generateRandomNumberDigitOf(8);
@@ -76,8 +74,6 @@ public class PatientRegistrationPage {
 		driver.findElement(selectSecurityQuestionBy).sendKeys("what is your pet name"); 
 		driver.findElement(securityAnswerBy).sendKeys(RandomUtils.generateRandomString(3)); 
 		driver.findElement(registerBy).click(); 
-		
-		Thread.sleep(50);
 		acceptAlert();
 
 		System.out.println("#########################Registration page Values######################################");

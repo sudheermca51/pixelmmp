@@ -1,9 +1,13 @@
 package org.iitwf.healthcare.mmp.pm.pages;
 
+import java.time.Duration;
 import java.util.HashMap;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HomePage {
 	private By validMsgBy = By.tagName("h3");
@@ -21,6 +25,9 @@ public class HomePage {
 
 	public void selectModule(String moduleName) {
 		// 2. Click on Schedule Appointment module.
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		WebElement header = wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("h3")));
+
 		driver.findElement(By.xpath("//span[normalize-space()='" + moduleName + "']")).click();
 
 	}

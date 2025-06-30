@@ -43,7 +43,7 @@ public class MessagesPage {
 	   HashMap<String,String> expectedHMap = new HashMap<String,String>();
 	   expectedHMap.put("patientName", expectedPatientName);
 	   expectedHMap.put("reason", expectedReason);
-	   expectedHMap.put("msg", expectedMessage);
+	   expectedHMap.put("message", expectedMessage);
 	   expectedHMap.put("date", expectedDate);
 	   return expectedHMap;
 	   

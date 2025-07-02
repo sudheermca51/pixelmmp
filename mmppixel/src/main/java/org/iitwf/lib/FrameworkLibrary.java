@@ -5,9 +5,11 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.iitwf.healthcare.mmppixel.FutureDate;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 
@@ -21,12 +23,14 @@ public class FrameworkLibrary {
 	protected ExtentReports extent;
 	private static String browserType,environment;
 	
-	@BeforeSuite
+	@BeforeSuite(groups= {"functest"})
 	public void loadReports()
 	{
 
 		// directory where output is to be printed
-		String reporterFilePath = System.getProperty("user.dir")+"//reports//MMPReport.html";
+		String timeStamp = FutureDate.generateFutureDate(0,"dd_MM_yy_HH-mm-ss");
+		 
+		String reporterFilePath = System.getProperty("user.dir")+"//reports//MMPReport"+timeStamp+".html";
 		File reporterFile = new File(reporterFilePath);
 		
 		ExtentSparkReporter spark = new ExtentSparkReporter(reporterFile);
@@ -34,7 +38,7 @@ public class FrameworkLibrary {
 		extent.attachReporter(spark);
 	}
 
-	@BeforeClass
+	@BeforeClass(groups= {"functest"})
 	public void setUp() throws IOException
 	{
 		prop= readProperties("mmp_global.properties");
@@ -80,9 +84,14 @@ public class FrameworkLibrary {
 		FileInputStream fis = new FileInputStream(f);
 		Properties prop = new Properties();
 		prop.load(fis);
+		System.out.println("Properties details" + prop);
 		return prop;
 
 	}
-
+	@AfterSuite(groups= {"functest"})
+	public void closeResources()
+	{
+		extent.flush();
+	}
 
 }

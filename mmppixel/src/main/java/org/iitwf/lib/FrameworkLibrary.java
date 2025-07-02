@@ -20,9 +20,9 @@ public class FrameworkLibrary {
 
 	protected Properties prop;
 	protected WebDriver driver;
-	protected ExtentReports extent;
+	protected static ExtentReports extent;
 	private static String browserType,environment;
-	
+
 	@BeforeSuite(groups= {"functest"})
 	public void loadReports()
 	{

@@ -4,6 +4,7 @@
 	</listeners>
 	<test name="mmpSuite">
 		<classes>
+				<class name="org.iitwf.healthcare.mmppixel.SendMessageTests" />
 			  <class name="org.iitwf.healthcare.mmppixel.ScheduleAppointmentTests"/>
 		</classes>
 	</test>

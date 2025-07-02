@@ -10,12 +10,13 @@ import org.iitwf.lib.FrameworkLibrary;
 import org.iitwf.lib.ScreenshotUtil;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import com.aventstack.extentreports.ExtentTest;
+
+ 
 
 public class ScheduleAppointmentTests extends FrameworkLibrary{
 		
-	@Test
+	@Test(groups= {"functest"})
 	public void MMP_PAT_SCH_001_Schedule_Appointment() throws IOException
 	{
 		ExtentTest extentTest = extent.createTest("##########Schedule Appointment Tests######################");

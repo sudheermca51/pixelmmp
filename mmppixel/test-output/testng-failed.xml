@@ -7,6 +7,7 @@
         <methods>
           <include name="loadReports"/>
           <include name="MMP_PAT_SNDM_001_Send_Messages"/>
+          <include name="closeResources"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- org.iitwf.healthcare.mmppixel.SendMessageTests -->

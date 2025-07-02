@@ -1,5 +1,6 @@
 package org.iitwf.lib;
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -24,12 +25,12 @@ public class ConnectionManager
 	 */
 
 	@Test(dataProvider="DP")
-	public void validateLogin(String id,String name,String date)
+	public void validateLogin(String patientID,String patientName,String dateOfAppointment)
 	{
 		
-		System.out.println("DB Values: " + id);
-		System.out.println("DB Values:"  + name);
-		System.out.println("DB Values:"  + date);
+		System.out.println("DB Values: " + patientID);
+		System.out.println("DB Values:"  + patientName);
+		System.out.println("DB Values:"  + dateOfAppointment);
 		
 //		WebDriverManager.chromeDriver.setup();
 //		WebDriver driver = new ChromeDriver();
@@ -43,7 +44,7 @@ public class ConnectionManager
 	@DataProvider(name="DP")
 	public String[][] feedDP() throws ClassNotFoundException, SQLException
 	{
-		String data[][] =getDBValues("root","Rootmysql1!*","test_db","localhost");
+		String data[][] =getDBValues("root","root","mmp_poc","localhost");
 		return data;
 	}
 	public static String[][] getDBValues(String uname,String pword,String dbname,String hostip) throws ClassNotFoundException, SQLException 
@@ -56,7 +57,7 @@ public class ConnectionManager
 		 */
 		String url="jdbc:mysql://localhost:3306/"+dbname;
 		String username="root";
-		String password="Rootmysql1!*";
+		String password="root";
 		
 		Connection con = DriverManager.getConnection(url, username, password);
 		Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
@@ -64,7 +65,7 @@ public class ConnectionManager
 		//int  value = stmt.executeUpdate("INSERT INTO `mmp`.`patient_data` VALUES (11,'James','22/11/2021');");
 		//System.out.println("The rows are updated "+ value);
 		
-		ResultSet rs =  stmt.executeQuery("Select * from "+dbname+".data");
+		ResultSet rs =  stmt.executeQuery("Select * from "+dbname+".patient_data");
 		rs.last();
 		
 		int rows = rs.getRow();
@@ -91,4 +92,3 @@ public class ConnectionManager
 	}
 
 }
-

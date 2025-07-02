@@ -23,7 +23,7 @@ public class HomePage {
 	public String getLoginSuccessfulMsg() {
 		return driver.findElement(validMsgBy).getText().trim();
 	}
-
+	
 	public void selectModule(String moduleName) {
 	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 	    
@@ -38,7 +38,7 @@ public class HomePage {
 	    // Now click the element safely
 	    moduleElement.click();
 	}
-	
+
 	//public void selectModule(String moduleName) {
 		// 2. Click on Schedule Appointment module.
 		//driver.findElement(By.xpath("//span[normalize-space()='" + moduleName + "']")).click();
